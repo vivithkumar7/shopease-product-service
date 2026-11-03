@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1440" height="930" viewBox="0 0 1440 930" role="img" aria-labelledby="title desc">
   <title id="title">ShopEase Docker-hosted CRUD test summary</title>
-  <desc id="desc">Summary of the verified Docker build, running Compose container, and HTTP smoke test covering all product operations.</desc>
+  <desc id="desc">Summary of the verified Docker build, running standalone container, and HTTP smoke test covering all product operations.</desc>
   <rect width="1440" height="930" fill="#111827"/>
   <rect width="1440" height="66" fill="#263449"/>
   <circle cx="30" cy="33" r="8" fill="#ff6b6b"/>
@@ -10,8 +10,8 @@
   <g font-family="Consolas, monospace" font-size="19">
     <text x="52" y="118" fill="#72d6a0">PS D:\ShopEase\shopease-product-service&gt; docker build -t shopease-product-service .</text>
     <text x="52" y="158" fill="#a8b7c8">#11 DONE · image tagged shopease-product-service:latest</text>
-    <text x="52" y="210" fill="#72d6a0">PS&gt; docker compose up -d --build</text>
-    <text x="52" y="250" fill="#a8b7c8">Container started · 0.0.0.0:8003-&gt;8003/tcp</text>
+    <text x="52" y="210" fill="#72d6a0">PS&gt; docker run -d --name shopease-product-container -p 8003:8003 shopease-product-service</text>
+    <text x="52" y="250" fill="#a8b7c8">Container running · 0.0.0.0:8003-&gt;8003/tcp</text>
     <text x="52" y="302" fill="#72d6a0">PS&gt; python scripts\smoke_test.py --base-url http://localhost:8003</text>
     <text x="52" y="355" fill="#8be9fd">PASS GET / → HTTP 200</text>
     <text x="52" y="395" fill="#8be9fd">PASS POST /api/products/ → HTTP 201</text>

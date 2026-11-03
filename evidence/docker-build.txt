@@ -1,0 +1,52 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 30B 0.1s
+#1 transferring dockerfile: 268B 0.2s done
+#1 DONE 0.2s
+
+#2 [internal] load metadata for docker.io/library/python:3.12-slim
+#2 ...
+
+#3 [auth] library/python:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.12-slim
+#2 DONE 2.5s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 387B 0.0s done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 2.81kB 0.1s done
+#5 DONE 0.1s
+
+#6 [1/5] FROM docker.io/library/python:3.12-slim@sha256:b18b261e1b4974b4f321451ad5251ded85abb22c2b8b262da527dda1d031ab30
+#6 resolve docker.io/library/python:3.12-slim@sha256:b18b261e1b4974b4f321451ad5251ded85abb22c2b8b262da527dda1d031ab30 0.1s done
+#6 DONE 0.1s
+
+#7 [2/5] WORKDIR /service
+#7 CACHED
+
+#8 [3/5] COPY requirements.txt .
+#8 CACHED
+
+#9 [4/5] RUN pip install --no-cache-dir -r requirements.txt
+#9 CACHED
+
+#10 [5/5] COPY app ./app
+#10 CACHED
+
+#11 exporting to image
+#11 exporting layers 0.0s done
+#11 exporting manifest sha256:252ccea54a5d0cc70e6cb36ff92326fb82b3dca83c8ae6ee8d62f817575d4832 done
+#11 exporting config sha256:c3cd9c5a8a29c9ef9660274124cf759774fe44ec8661749bbef30425fb055ba0 done
+#11 exporting attestation manifest sha256:cce1cad4bb2689c58c6336ea628707c24f7176181202878615b64bca7e0655bb
+#11 exporting attestation manifest sha256:cce1cad4bb2689c58c6336ea628707c24f7176181202878615b64bca7e0655bb 0.0s done
+#11 exporting manifest list sha256:50bb8cb4a9a4282faf9c20a45aeda651966d2913c795b6a49e5d8359b6067aef 0.0s done
+#11 naming to docker.io/library/shopease-product-service:latest done
+#11 unpacking to docker.io/library/shopease-product-service:latest 0.0s done
+#11 DONE 0.4s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/3jvcivxzs8hl8sgbdlg6gbk76

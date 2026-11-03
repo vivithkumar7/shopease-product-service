@@ -224,11 +224,12 @@ Dockerfile / compose.yaml container build and run settings</pre>
   <h2>Container output</h2>
   <p>The Docker image uses Python slim, installs the pinned application requirements, copies the app package, and starts Uvicorn on port 8003.</p>
   <pre>docker build -t shopease-product-service .
-docker compose up -d --build
-docker compose ps
+docker run -d --name shopease-product-container -p 8003:8003 shopease-product-service
+docker ps
+docker logs shopease-product-container
 python scripts\smoke_test.py --base-url http://localhost:8003</pre>
   <img class="evidence" src="assets/docker-output.svg" alt="Docker image build and container smoke test output">
-  <p class="caption">Summary of the verified Docker build and smoke test. The complete Docker output screenshot is in <span class="code">evidence/docker-verification.png</span>; per-request output is in the neighboring text file.</p>
+  <p class="caption">Summary of the verified image, standalone container, and smoke test. Docker output and per-request results are saved under <span class="code">evidence/</span>.</p>
   <h3>Where to test</h3>
   <ul><li>Health: <span class="code">http://localhost:8003/</span></li><li>Swagger UI: <span class="code">http://localhost:8003/docs</span></li><li>OpenAPI: <span class="code">http://localhost:8003/openapi.json</span></li></ul>
   <div class="foot"><span>Docker evidence</span><span>Page 8 of 10</span></div>
@@ -238,7 +239,7 @@ python scripts\smoke_test.py --base-url http://localhost:8003</pre>
   <div class="head"><span>SHOP EASE · PROJECT REPORT</span><span>08 / LIVE OUTPUT</span></div>
   <div class="kicker">08 · Live API evidence</div>
   <h2>Running service responses</h2>
-  <p>The Compose-hosted application was checked over the published local port. The screenshot below shows the actual Swagger UI exposed by the running container.</p>
+  <p>The standalone container was checked over the published local port. The screenshot below shows the actual Swagger UI exposed by the running container.</p>
   <img class="evidence" src="../evidence/live-api-output.png" alt="Actual browser screenshot of the live health response from Docker">
   <p class="caption">Actual browser screenshot from the live container; GET / returned 200.</p>
   <img class="evidence tall" src="../evidence/swagger-ui.png" alt="Screenshot of live Swagger UI from the Docker-hosted application">

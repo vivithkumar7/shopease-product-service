@@ -60,6 +60,7 @@ def run_smoke_tests(base_url: str) -> None:
     }
 
     invalid_products = (
+        {**product, "name": ""},
         {**product, "name": "   "},
         {**product, "price": -1},
         {**product, "price": 0},

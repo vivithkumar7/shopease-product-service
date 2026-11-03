@@ -1,0 +1,31 @@
+﻿Built image ID: sha256:50bb8cb4a9a4282faf9c20a45aeda651966d2913c795b6a49e5d8359b6067aef
+docker image ls shopease-product-service
+shopease-product-service:latest | 50bb8cb4a9a4 | 249MB
+
+docker ps
+shopease-product-container | shopease-product-service | Up 32 seconds | 0.0.0.0:8003->8003/tcp, [::]:8003->8003/tcp
+
+docker logs shopease-product-container
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8003 (Press CTRL+C to quit)
+INFO:     172.17.0.1:36140 - "GET / HTTP/1.1" 200 OK
+INFO:     172.17.0.1:36148 - "GET / HTTP/1.1" 200 OK
+INFO:     172.17.0.1:36152 - "POST /api/products/ HTTP/1.1" 422 Unprocessable Entity
+INFO:     172.17.0.1:36162 - "POST /api/products/ HTTP/1.1" 422 Unprocessable Entity
+INFO:     172.17.0.1:36174 - "POST /api/products/ HTTP/1.1" 422 Unprocessable Entity
+INFO:     172.17.0.1:36186 - "POST /api/products/ HTTP/1.1" 422 Unprocessable Entity
+INFO:     172.17.0.1:36200 - "POST /api/products/ HTTP/1.1" 422 Unprocessable Entity
+INFO:     172.17.0.1:36212 - "POST /api/products/ HTTP/1.1" 422 Unprocessable Entity
+INFO:     172.17.0.1:36214 - "POST /api/products/ HTTP/1.1" 422 Unprocessable Entity
+INFO:     172.17.0.1:36216 - "POST /api/products/ HTTP/1.1" 201 Created
+INFO:     172.17.0.1:36218 - "GET /api/products/1 HTTP/1.1" 200 OK
+INFO:     172.17.0.1:36226 - "GET /api/products/?category=smoke%20test HTTP/1.1" 200 OK
+INFO:     172.17.0.1:36232 - "GET /api/products/?skip=0&limit=1 HTTP/1.1" 200 OK
+INFO:     172.17.0.1:36244 - "PUT /api/products/1 HTTP/1.1" 200 OK
+INFO:     172.17.0.1:36252 - "GET /api/products/not-an-id HTTP/1.1" 422 Unprocessable Entity
+INFO:     172.17.0.1:36260 - "GET /api/products/0 HTTP/1.1" 422 Unprocessable Entity
+INFO:     172.17.0.1:36274 - "GET /api/products/9223372036854775807 HTTP/1.1" 404 Not Found
+INFO:     172.17.0.1:36288 - "DELETE /api/products/1 HTTP/1.1" 204 No Content
+INFO:     172.17.0.1:36290 - "GET /api/products/1 HTTP/1.1" 404 Not Found
